@@ -1,8 +1,16 @@
     var ftpd = require('ftpd');
     var fs = require('fs');
+    var express = require('express');
+    var app = express();
+    var http = require('http').Server(app);
+    var io = require('socket.io')(http);
+    var config = require('./config.json');
     var execFile = require('child_process').execFile;
     var file_list = [];
     var p = "./printer";
+
+    app.use(express.static(__dirname + '/webapp'));
+    app.use('/printer', express.static(__dirname + '/printer'));
 
     var host = '0.0.0.0';
     var user = {
@@ -58,7 +66,6 @@
       return newArray;
     }
 
-    //read dir
     var getFiles = function() {
 
       execFile('find', [p], function(err, stdout, stderr) {
@@ -67,7 +74,20 @@
 
     };
 
+    http.listen(config.express_port, function() {
+      console.log('listening on *:' + config.express_port);
+    });
+
+    io.on('connection', function(socket) {
+      console.log("Client connected");
+    });
+
     setInterval(function() {
       getFiles();
-      console.log(file_list);
+
+      io.emit("message", {
+        type: 'file_list',
+        message: file_list
+      });
+
     }, 1000);
