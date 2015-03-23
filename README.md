@@ -3,7 +3,7 @@ FTP Server & WebInterface for your Printer
 
 ## setup
 
-install via <pre> npm install </pre>
+install via <pre> npm install && bower install</pre>
 <br>
 run it via <pre> sudo node server.js </pre>
 <br>
