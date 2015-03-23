@@ -30,6 +30,10 @@ body {
   padding-bottom: 19px;
 }
 
+.container h2 .btn {
+    float: right;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;

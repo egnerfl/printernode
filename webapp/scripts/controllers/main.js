@@ -22,7 +22,6 @@ angular.module('printernode')
 
 		$scope.delete = function(file){
 			socket.socket.emit('delete', { 'file': file });
-			console.log('delete', file);
 		}
 
 		$scope.download = function(file) {
@@ -46,6 +45,10 @@ angular.module('printernode')
 			}
 
 			return name;
+		}
+
+		$scope.deleteAll = function(){
+			socket.socket.emit('deleteAll');
 		}
 
 	}]);

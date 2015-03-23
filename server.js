@@ -85,6 +85,19 @@
         });
       });
 
+      socket.on('deleteAll', function(file) {
+
+        var delList = [];
+
+        for (var i = file_list.length - 1; i >= 0; i--) {
+          delList.push(p + file_list[i]);
+        };
+
+        del(delList, function(err, paths) {
+          console.log('Deleted files/folders:\n', paths.join('\n'));
+        });
+      });
+
     });
 
 

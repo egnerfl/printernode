@@ -1,6 +1,10 @@
 <div class="container">
 
-	<h2>files</h2>
+	<h2>files
+
+		<button class="btn btn-danger" ng-click="deleteAll()">delete all files</button>
+
+	</h2>
 
 	<div class="fileBlock col-md-3" ng-repeat="file in data.file_list.message">
 		
