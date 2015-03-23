@@ -102,7 +102,8 @@ body {
 
 .fileBlock h5 {
   margin-top: 0px;
-  text-align: center;
+  position: absolute;
+  left: 35px;
 }
 
 .fileBlock h5:hover{
@@ -113,14 +114,14 @@ body {
   color: snow;
   position: absolute;
   left: 45px;
-  bottom: 42px;
+  bottom: 20px;
   font-size: 1.2em;
 }
 
 .fileBlock .deleteIcon{
   position: absolute;
   z-index: 100;
-  right: 15px;
+  left: 85px;
   top: 7px;
 }
 .fileBlock .deleteIcon:hover{
