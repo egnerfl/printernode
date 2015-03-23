@@ -92,7 +92,7 @@ body {
 }
 
 .fileBlock:hover{
-  /*background: cornflowerblue;*/
+    opacity: 0.7;
 }
 
 .fileBlock h5 {
