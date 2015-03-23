@@ -9,7 +9,6 @@
     var file_list = [];
     var del = require('del');
     var p = "./printer";
-    var user = config.ftp_user;
 
 
     app.use(express.static(__dirname + '/webapp'));
@@ -37,11 +36,11 @@
       var username;
       console.log('Client connected from ' + conn.socket.remoteAddress);
       conn.on('command:user', function(user, success, failure) {
-        (config.ftp_user.name == 'printer') ? success(): failure();
+        (config.ftp_user.name == user) ? success(): failure();
       });
       conn.on('command:pass', function(pass, success, failure) {
         // check the password
-        (pass == 'printer') ? success(config.ftp_user.name): failure();
+        (config.ftp_user.password == pass) ? success(config.ftp_user.name): failure();
       });
 
       getFiles();
