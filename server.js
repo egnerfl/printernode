@@ -9,15 +9,13 @@
     var file_list = [];
     var del = require('del');
     var p = "./printer";
+    var user = config.ftp_user;
+
 
     app.use(express.static(__dirname + '/webapp'));
     app.use('/printer', express.static(__dirname + '/printer'));
 
     var host = '0.0.0.0';
-    var user = {
-      'name': 'printer',
-      'password': 'printer'
-    };
 
     var options = {
       pasvPortRangeStart: 4000,
@@ -39,12 +37,11 @@
       var username;
       console.log('Client connected from ' + conn.socket.remoteAddress);
       conn.on('command:user', function(user, success, failure) {
-        username = user;
-        (user == 'printer') ? success(): failure();
+        (config.ftp_user.name == 'printer') ? success(): failure();
       });
       conn.on('command:pass', function(pass, success, failure) {
         // check the password
-        (pass == 'printer') ? success(username): failure();
+        (pass == 'printer') ? success(config.ftp_user.name): failure();
       });
 
       getFiles();
@@ -99,4 +96,4 @@
         message: file_list
       });
 
-    }, 1000);
+    }, config.refresh_rate);

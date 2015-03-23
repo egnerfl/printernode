@@ -1,3 +1,8 @@
 {
-	"express_port": 8080
+	"express_port": 8080,
+	"ftp_user": {
+		"name": "printer",
+		"password": "printer"
+	},
+	"refresh_rate": 1000
 }
