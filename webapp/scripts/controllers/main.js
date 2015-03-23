@@ -26,7 +26,13 @@ angular.module('printernode')
 		}
 		
 		$scope.parseFileName = function(file){
-			return file.replace('/','');
+			var name = file.replace('/','');
+
+			if(name.length > 10){
+				name = name.substring(0, 8) + '..';
+			}
+			
+			return name;
 		}
 
 	}]);

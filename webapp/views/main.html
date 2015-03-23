@@ -2,6 +2,9 @@
 
 	<h2>files</h2>
 
-	<div class="fileBlock" ng-repeat="file in data.file_list.message" ng-click="download(file)"><h5> {{ parseFileName(file) }} </h5></div>
+	<div class="fileBlock" ng-repeat="file in data.file_list.message" ng-click="download(file)">
+		
+		<h5> {{ parseFileName(file) }} </h5>
+	</div>
 
 </div>

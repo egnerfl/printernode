@@ -82,20 +82,20 @@ body {
   }
 }
 .fileBlock {
-    background: lightblue;
-    height: 120px;
+    height: 100px;
     width: 100px;
     float: left;
     margin: 10px;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+    background-image: url('../images/icon-512.png');
+    background-size: contain;
 }
 
 .fileBlock:hover{
-  background: cornflowerblue;
+  /*background: cornflowerblue;*/
 }
 
 .fileBlock h5 {
+  margin-top: 100px;
   text-align: center;
 }
