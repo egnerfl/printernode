@@ -20,6 +20,10 @@ angular.module('printernode')
 			});
 		});
 
+		$scope.delete = function(file){
+			console.log('delete', file);
+		}
+
 		$scope.download = function(file) {
 			console.log('/printer' + file);
 			document.location = '/printer' + file;
