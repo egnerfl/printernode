@@ -4,6 +4,7 @@
 
 	<div class="fileBlock" ng-repeat="file in data.file_list.message" ng-click="download(file)">
 		
+		<div class="fileType"> {{ parseFileType(file) }} </div>
 		<h5> {{ parseFileName(file) }} </h5>
 	</div>
 

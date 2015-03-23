@@ -20,18 +20,26 @@ angular.module('printernode')
 			});
 		});
 
-		$scope.download = function(file){
+		$scope.download = function(file) {
 			console.log('/printer' + file);
 			document.location = '/printer' + file;
 		}
-		
-		$scope.parseFileName = function(file){
-			var name = file.replace('/','');
 
-			if(name.length > 10){
+		$scope.parseFileType = function(file) {
+			var type = file.replace('/', '');
+
+			type = type.split('.')[type.split('.').length - 1];
+
+			return type;
+		}
+
+		$scope.parseFileName = function(file) {
+			var name = file.replace('/', '');
+
+			if (name.length > 10) {
 				name = name.substring(0, 8) + '..';
 			}
-			
+
 			return name;
 		}
 
