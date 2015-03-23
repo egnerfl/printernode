@@ -1,0 +1,14 @@
+{
+  "name": "printernode",
+  "version": "1.0.0",
+  "description": "ftp server for printer",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Florian Egner",
+  "license": "ISC",
+  "dependencies": {
+    "ftpd": "^0.2.11"
+  }
+}
