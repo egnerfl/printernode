@@ -7,6 +7,7 @@
     var config = require('./config.json');
     var execFile = require('child_process').execFile;
     var file_list = [];
+    var del = require('del');
     var p = "./printer";
 
     app.use(express.static(__dirname + '/webapp'));
@@ -80,7 +81,15 @@
 
     io.on('connection', function(socket) {
       console.log("Client connected");
+
+      socket.on('delete', function(file) {
+        del([p + file.file], function(err, paths) {
+          console.log('Deleted files/folders:\n', paths.join('\n'));
+        });
+      });
+
     });
+
 
     setInterval(function() {
       getFiles();

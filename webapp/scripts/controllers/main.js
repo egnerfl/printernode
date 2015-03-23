@@ -21,6 +21,7 @@ angular.module('printernode')
 		});
 
 		$scope.delete = function(file){
+			socket.socket.emit('delete', { 'file': file });
 			console.log('delete', file);
 		}
 
